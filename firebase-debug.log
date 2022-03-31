@@ -1,0 +1,18 @@
+[debug] [2022-03-31T05:40:36.084Z] ----------------------------------------------------------------------
+[debug] [2022-03-31T05:40:36.084Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-03-31T05:40:36.085Z] CLI Version:   10.5.0
+[debug] [2022-03-31T05:40:36.085Z] Platform:      darwin
+[debug] [2022-03-31T05:40:36.085Z] Node Version:  v16.14.2
+[debug] [2022-03-31T05:40:36.085Z] Time:          Thu Mar 31 2022 00:40:36 GMT-0500 (Central Daylight Time)
+[debug] [2022-03-31T05:40:36.086Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-31T05:40:36.114Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/undefined [none]
+[debug] [2022-03-31T05:40:36.413Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/undefined 403
+[debug] [2022-03-31T05:40:36.413Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/undefined {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-03-31T05:40:36.414Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-03-31T05:40:36.525Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:47:12)
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project undefined. Please make sure the project exists and your account has permission to access it.
