@@ -3,24 +3,36 @@ import React, { useState } from 'react';
 import Course from './Course.js';
 
 
-const CourseList = ({ courses }) => {
-    const [term, setTerm] = useState('Fall');
-    const [selected, setSelected] = useState([]);
-    const termCourses = Object.values(courses).filter(course => term === getCourseTerm(course));
+const scheduleChanged = (selected, courses) => (
+  selected.some(course => course !== courses[course.id])
+);
 
-    return (
-        <>
-            <TermSelector term={term} setTerm={setTerm} />
-            <div className="course-list">
-                {
-                    termCourses.map(course =>
-                        <Course key={course.id} course={course}
-                            selected={selected} setSelected={setSelected}
-                        />)
-                }
-            </div>
-        </>
-    );
+const CourseList = ({ courses }) => {
+  const [term, setTerm] = useState('Fall');
+  const [selected, setSelected] = useState([]);
+
+  
+  console.log("ghskjfgh", scheduleChanged(selected, courses))
+
+  if (scheduleChanged(selected, courses)) {
+    setSelected([])
+  };
+  
+  const termCourses = Object.values(courses).filter(course => term === getCourseTerm(course));
+  
+  return (
+    <>
+      <TermSelector term={term} setTerm={setTerm} />
+      <div className="course-list">
+      { 
+        termCourses.map(course =>
+          <Course key={ course.id } course={ course }
+            selected={selected} setSelected={ setSelected } 
+          />) 
+      }
+      </div>
+    </>
+  );
 };
 
 const TermSelector = ({ term, setTerm }) => (
